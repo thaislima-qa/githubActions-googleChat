@@ -1,0 +1,14 @@
+{
+  "name": "googleChat-githubActions",
+  "version": "1.0.0",
+  "description": "Integração entre Github Actions e Google Chat para disparar notificação após a execução de um workflow",
+  "main": "index.js",
+  "repository": "git@github.com:thaislima-qa/googleChat-githubActions.git",
+  "author": "Thais Lima",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "axios": "^1.7.2"
+  }
+}
