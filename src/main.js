@@ -6,14 +6,14 @@ const colors = {
   success: '#2cbe4e',
   failure: '#ff0000',
   other: '#ffc107'
-};
+}
 
 const events = {
   pull_request: 'pull_request',
   push: 'push',
   workflow_dispatch: 'workflow_dispatch',
   schedule: 'schedule'
-};
+}
 
 /**
  * The main function for the action.
@@ -110,7 +110,7 @@ function createCard({ name, status, owner, repo, eventName, ref, actor, workflow
         text: name,
         wrapText: true
       }
-    });
+    })
   }
   return {
     header: {
@@ -173,7 +173,7 @@ function createCard({ name, status, owner, repo, eventName, ref, actor, workflow
         ]
       }
     ]
-  };
+  }
 }
 
 function createBody(name, card) {
