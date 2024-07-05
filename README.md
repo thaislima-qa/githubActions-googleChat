@@ -45,7 +45,7 @@ Image
     status: ${{ job.status }}
     # Job status. It may be one of `success`, `failure`, `cancelled`. 
     # Required
-    collapse: 1
+    collapse: 3
     # The number of widgets in the card section that are not collapsible
     # Defaults to -1: card is not collapsible.
     # Optional

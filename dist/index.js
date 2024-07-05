@@ -32657,14 +32657,6 @@ ${pendingInterceptorsFormatter.format(pending)}
                   },
                   {
                     decoratedText: {
-                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/repo.png' },
-                      topLabel: 'Repository',
-                      text: `${repo}`,
-                      button: { text: 'Open', onClick: { openLink: { url: repoUrl } } }
-                    }
-                  },
-                  {
-                    decoratedText: {
                       icon: { iconUrl: `https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/event_${eventType}.png` },
                       topLabel: 'Event',
                       text: eventNameFmt,
@@ -32673,16 +32665,24 @@ ${pendingInterceptorsFormatter.format(pending)}
                   },
                   {
                     decoratedText: {
-                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/ref.png' },
-                      topLabel: 'Ref',
-                      text: ref
+                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/event_workflow_dispatch.png' },
+                      topLabel: 'Workflow',
+                      text: workflow
+                    }
+                  },                                    
+                  {
+                    decoratedText: {
+                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/repo.png' },
+                      topLabel: 'Repository',
+                      text: `${repo}`,
+                      button: { text: 'Open', onClick: { openLink: { url: repoUrl } } }
                     }
                   },
                   {
                     decoratedText: {
-                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/event_workflow_dispatch.png' },
-                      topLabel: 'Workflow',
-                      text: workflow
+                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/ref.png' },
+                      topLabel: 'Ref',
+                      text: ref
                     }
                   },
                   {
