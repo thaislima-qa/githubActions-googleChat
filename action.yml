@@ -1,0 +1,32 @@
+name: 'GitHub Action to Google Chat'
+description: 'Send a notification to Google Chat with the result of a GitHub Action'
+author: 'Thais Lima'
+
+# Define your inputs here.
+inputs:
+  name:
+    description: 'Job Name'
+    required: true
+  url:
+    description: 'Google Chat Webhook URL'
+    required: true
+  status:
+    description: 'Job Status'
+    required: true
+  collapse:
+    description: >
+      The number of _widgets_ in the card section that are not collapsible.
+      Defaults to -1: card is not collapsible.
+      Valid values:
+        *no value/omitted*: the default value
+        number: the number of widgets that are not collapsible. If negative, the card is not collapsible.
+    required: false
+    default: '-1'
+
+branding:
+  icon: 'bell'
+  color: 'green'
+
+runs:
+  using: node20
+  main: dist/index.js
