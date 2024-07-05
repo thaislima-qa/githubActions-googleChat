@@ -32537,7 +32537,8 @@ ${pendingInterceptorsFormatter.format(pending)}
         const events = {
           pull_request: 'pull_request',
           push: 'push',
-          workflow_dispatch: 'workflow_dispatch'
+          workflow_dispatch: 'workflow_dispatch',
+          schedule: 'schedule'
         };
 
         /**
@@ -32637,7 +32638,7 @@ ${pendingInterceptorsFormatter.format(pending)}
           return {
             header: {
               title: name,
-              subtitle: `${owner}/${repo}`,
+              subtitle: `${repo}`,
               imageUrl: 'https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png',
               imageType: 'CIRCLE'
             },
@@ -32648,7 +32649,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                 widgets: [
                   {
                     decoratedText: {
-                      icon: { iconUrl: `https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/blob/main/assets/status_${statusType}.png` },
+                      icon: { iconUrl: `https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/status_${statusType}.png` },
                       topLabel: 'Status',
                       text: `<font color="${statusColor}">${statusName}</font>`,
                       button: { text: 'Open', onClick: { openLink: { url: checksUrl } } }
@@ -32656,7 +32657,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                   },
                   {
                     decoratedText: {
-                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/blob/main/assets/repo.png' },
+                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/repo.png' },
                       topLabel: 'Repository',
                       text: `${owner}/${repo}`,
                       button: { text: 'Open', onClick: { openLink: { url: repoUrl } } }
@@ -32664,7 +32665,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                   },
                   {
                     decoratedText: {
-                      icon: { iconUrl: `https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/blob/main/assets/event_${eventType}.png` },
+                      icon: { iconUrl: `https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/event_${eventType}.png` },
                       topLabel: 'Event',
                       text: eventNameFmt,
                       button: { text: 'Open', onClick: { openLink: { url: eventUrl } } }
@@ -32672,21 +32673,21 @@ ${pendingInterceptorsFormatter.format(pending)}
                   },
                   {
                     decoratedText: {
-                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/blob/main/assets/ref.png' },
+                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/ref.png' },
                       topLabel: 'Ref',
                       text: ref
                     }
                   },
                   {
                     decoratedText: {
-                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/blob/main/assets/event_workflow_dispatch.png' },
+                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/event_workflow_dispatch.png' },
                       topLabel: 'Workflow',
                       text: workflow
                     }
                   },
                   {
                     decoratedText: {
-                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/blob/main/assets/actor.png' },
+                      icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/actor.png' },
                       topLabel: 'User',
                       text: actor
                     }
