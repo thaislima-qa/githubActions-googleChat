@@ -24,8 +24,8 @@ inputs:
     default: '-1'
 
 branding:
-  icon: 'bell'
-  color: 'green'
+  icon: 'send'
+  color: 'yellow'
 
 runs:
   using: node20
