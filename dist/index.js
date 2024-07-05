@@ -32659,7 +32659,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                     decoratedText: {
                       icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/repo.png' },
                       topLabel: 'Repository',
-                      text: `${owner}/${repo}`,
+                      text: `${repo}`,
                       button: { text: 'Open', onClick: { openLink: { url: repoUrl } } }
                     }
                   },
