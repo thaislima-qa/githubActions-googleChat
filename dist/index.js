@@ -32577,10 +32577,10 @@ ${pendingInterceptorsFormatter.format(pending)}
 
         async function sendNotification(name, url, status, collapse) {
           const { owner, repo } = github.context.repo;
-          const { eventName, sha, ref, actor, workflow } = github.context;
+          const { eventName, sha, ref, actor, workflow, runId } = github.context; 
           const { number } = github.context.issue;
 
-          const card = createCard({ name, status, owner, repo, eventName, ref, actor, workflow, sha, number, collapse });
+          const card = createCard({ name, status, owner, repo, eventName, ref, actor, workflow, sha, number, collapse, runId });
           const body = createBody(name, card);
 
           try {
@@ -32593,7 +32593,7 @@ ${pendingInterceptorsFormatter.format(pending)}
           }
         }
 
-        function createCard({ name, status, owner, repo, eventName, ref, actor, workflow, sha, number, collapse }) {
+        function createCard({ name, status, owner, repo, eventName, ref, actor, workflow, sha, number, collapse, runId }) {
           const statusLower = status.toLowerCase();
           let statusColor;
           const statusName = status.substring(0, 1).toUpperCase() + status.substring(1);
@@ -32623,7 +32623,9 @@ ${pendingInterceptorsFormatter.format(pending)}
           const eventPath = eventType === events.pull_request ? `/pull/${number}` : `/commit/${sha}`;
           const repoUrl = `https://github.com/${owner}/${repo}`;
           const eventUrl = `${repoUrl}${eventPath}`;
-          const checksUrl = `${repoUrl}${eventPath}/checks`;
+          const checksUrl = `${repoUrl}${eventPath}/actions/runs/${runId}`
+          const workflowUrl = `${repoUrl}${eventPath}/actions`
+          //`${repoUrl}${eventPath}/checks`;
           const showNameWidget = name.length >= 45; // google chat truncates title header if too long
           const nameWidgets = [];
           if (showNameWidget) {
@@ -32652,7 +32654,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                       icon: { iconUrl: `https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/status_${statusType}.png` },
                       topLabel: 'Status',
                       text: `<font color="${statusColor}">${statusName}</font>`,
-                      button: { text: 'Open', onClick: { openLink: { url: checksUrl } } }
+                      button: { text: 'Open Checks', onClick: { openLink: { url: checksUrl } } }
                     }
                   },
                   {
@@ -32660,14 +32662,15 @@ ${pendingInterceptorsFormatter.format(pending)}
                       icon: { iconUrl: `https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/event_${eventType}.png` },
                       topLabel: 'Event',
                       text: eventNameFmt,
-                      button: { text: 'Open', onClick: { openLink: { url: eventUrl } } }
+                      button: { text: 'Open Event', onClick: { openLink: { url: eventUrl } } }
                     }
                   },
                   {
                     decoratedText: {
                       icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/event_workflow_dispatch.png' },
                       topLabel: 'Workflow',
-                      text: workflow
+                      text: workflow,
+                      button: { text: 'Open Workflow', onClick: { openLink: { url: workflowUrl } } }
                     }
                   },                                    
                   {
@@ -32675,7 +32678,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                       icon: { iconUrl: 'https://raw.githubusercontent.com/thaislima-qa/googleChat-githubActions/main/assets/repo.png' },
                       topLabel: 'Repository',
                       text: `${repo}`,
-                      button: { text: 'Open', onClick: { openLink: { url: repoUrl } } }
+                      button: { text: 'Open Repository', onClick: { openLink: { url: repoUrl } } }
                     }
                   },
                   {
