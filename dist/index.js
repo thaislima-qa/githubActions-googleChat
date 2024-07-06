@@ -32623,8 +32623,8 @@ ${pendingInterceptorsFormatter.format(pending)}
           const eventPath = eventType === events.pull_request ? `/pull/${number}` : `/commit/${sha}`;
           const repoUrl = `https://github.com/${owner}/${repo}`;
           const eventUrl = `${repoUrl}${eventPath}`;
-          const checksUrl = `${repoUrl}${eventPath}/actions/runs/${runId}`
-          const workflowUrl = `${repoUrl}${eventPath}/actions`
+          const checksUrl = `${repoUrl}/actions/runs/${runId}`
+          const workflowUrl = `${repoUrl}/actions`
           //`${repoUrl}${eventPath}/checks`;
           const showNameWidget = name.length >= 45; // google chat truncates title header if too long
           const nameWidgets = [];
